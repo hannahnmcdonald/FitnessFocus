@@ -8,7 +8,7 @@ A fitness app to help you keep track of your progress and goals.
 
 ## Description
 
-Fitness Focus is an application that allows the user to create and track their workouts. They can create a weight based work out or a cardio workout and the name, weight, sets, reps, or distance can be saved for each. User can also see their progress on their dashboard. Each workout is saved into the MongoD Atlas database. From the dashboard, user can visualize graphs of their progress, one showing their workout duration in minutes, and the other showing their total weight used in the workout. 
+Fitness Focus is an application that allows the user to create and track their workouts. The user can create a weight based workout or a cardio based workout and the name, weight, sets, reps, or distance can be saved for each. User can also see their progress on their dashboard. Each workout is saved into the MongoD Atlas database. From the dashboard, user can visualize graphs of their progress, one showing their workout duration in minutes, and the other showing their total weight used in the workout. 
 
 ## User Story
  
