@@ -23,9 +23,17 @@ router.get("/api/workouts", (req, res) => {
   });
 })
 
-// TO DO: PUT Request (findOneAndUpdate)
+// PUT Request (findOneAndUpdate)
 router.put("/api/workouts/:id", (req, res) => {
-  Workout.findOneAndUpdate({_id: req.params.id}, {$push:{exercises:req.body}})
+  Workout.findOneAndUpdate(
+    {
+      _id: req.params.id
+    }, 
+    {
+      // Adds new exercise to the exercise array with push
+      $push:{exercises:req.body
+      }
+    })
   .then(workoutdb => {
       res.json(workoutdb);
   })
@@ -34,6 +42,17 @@ router.put("/api/workouts/:id", (req, res) => {
   });
 })
 
-// TO DO: GET Request w/Range (With a limit)
+// Limit(7) only retrieves 7 workouts and is not organized by most recent or by date
+router.get("/api/workouts/range", (req, res) => {
+  Workout.find({})
+    .limit(7)
+    .then((dbWorkout) => {
+      res.json(dbWorkout);
+    })
+    .catch((err) => {
+      res.json(err);
+    });
+});
+
 
 module.exports = router;
