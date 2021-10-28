@@ -1,7 +1,9 @@
 # FitnessFocus  
 
 🚵🏽‍♂️🏊🏽‍♀️⛹🏼‍♂️🏋🏽‍♀️
+
 A fitness app to help you keep track of your progress and goals.
+
 ![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)
 
 ## Description
@@ -11,7 +13,10 @@ Fitness Focus is an application that allows the user to create and track their w
 ## User Story
  
 ```
-As a user, I want to be able to view create and track daily workouts. I want to be able to log multiple exercises in a workout on a given day. I should also be able to track the name, type, weight, sets, reps, and duration of exercise. If the exercise is a cardio exercise, I should be able to track my distance traveled.
+As a user, I want to be able to view create and track daily workouts.
+I want to be able to log multiple exercises in a workout on a given day. 
+I should also be able to track the name, type, weight, sets, reps, and duration of exercise. 
+If the exercise is a cardio exercise, I should be able to track my distance traveled.
 
 ```
 
@@ -57,9 +62,9 @@ This repository is under the MIT License.
 
 Below are some of the helpful resources that helped me with this project:
 
-- [MDN: .setDate](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/setDate)
+- [MDN- .setDate](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/setDate)
 
-- [MDN: .getDate](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/getDate)
+- [MDN- .getDate](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/getDate)
 
 - [Mongoose- Aggregate](https://mongoosejs.com/docs/api.html#aggregate_Aggregate)
 
