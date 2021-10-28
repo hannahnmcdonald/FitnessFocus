@@ -7,6 +7,7 @@ const htmlRoute = require("./routes/htmlRoutes");
 const logger = require('morgan');
 
 // Port
+// FIXED PORT ISSUE- Needed to add process.env.PORT
 const PORT = process.env.PORT || 3002;
 
 const app = express();
