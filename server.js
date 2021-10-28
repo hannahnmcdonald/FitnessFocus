@@ -26,7 +26,8 @@ mongoose.connect(
     useUnifiedTopology: true,
     useCreateIndex: true,
     useFindAndModify: false,
-});
+  },
+);
 
 // routes
 app.use(htmlRoute);
