@@ -20,7 +20,7 @@ app.use(express.static('public'));
 
 // Connects either to MongoDB Atlas if on heroku site or to the local, if running locally --//
 mongoose.connect(
-  process.env.MONGODB_URI || 0.0.0.0,
+  process.env.MONGODB_URI || 'mongodb://localhost/workoutdb',
   {
     useNewUrlParser: true,
     useUnifiedTopology: true,
