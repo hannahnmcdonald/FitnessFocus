@@ -24,6 +24,15 @@ router.get("/api/workouts", (req, res) => {
 })
 
 // TO DO: PUT Request (findOneAndUpdate)
+router.put("/api/workouts/:id", (req, res) => {
+  Workout.findOneAndUpdate({_id: req.params.id}, {$push:{exercises:req.body}})
+  .then(workoutdb => {
+      res.json(workoutdb);
+  })
+  .catch(err => {
+    res.json(err);
+  });
+})
 
 // TO DO: GET Request w/Range (With a limit)
 

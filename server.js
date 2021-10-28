@@ -7,7 +7,7 @@ const htmlRoute = require("./routes/htmlRoutes");
 const logger = require('morgan');
 
 // Port
-const PORT = 3001;
+const PORT = 3002;
 
 const app = express();
 // Use logger

@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 const Schema = mongoose.Schema;
 
-// Schema inludes required data like excercise type, name, and duration, as well as extra data like weight, reos, sets, or distance
+// Schema inludes required data like excercise type, name, and duration, as well as extra data like weight, reps, sets, or distance
 const workoutSchema = new Schema({
   exercises: [
     {
@@ -42,6 +42,19 @@ const workoutSchema = new Schema({
     type: Date,
     default: Date.now,
   },
+}, 
+// Enabled Virtuals
+{
+  toJSON: {
+    virtuals: true
+  },
+});
+
+// Added Virtual to create summation of all the exercise durations with the array method: .reduce
+workoutSchema.virtual('totalDuration').get(function() {
+  return this.exercises.reduce((totalDuration, exercise) => {
+    return totalDuration + exercise.duration
+  }, 0)
 });
 
 const Workout = mongoose.model('Workout', workoutSchema);
