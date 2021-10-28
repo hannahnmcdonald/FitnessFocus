@@ -31,7 +31,9 @@ router.put("/api/workouts/:id", (req, res) => {
     }, 
     {
       // Adds new exercise to the exercise array with push
-      $push:{exercises:req.body
+      $push:
+      {
+        exercises:req.body
       }
     })
   .then(workoutdb => {
@@ -42,17 +44,37 @@ router.put("/api/workouts/:id", (req, res) => {
   });
 })
 
-// Limit(7) only retrieves 7 workouts and is not organized by most recent or by date
+// GET Request w/Range (With a 7 workout limit)
+// Additional mongodb/mongoose references on $sum, $addFields,aggregate & references via MDN docs for .setDate & .getDate
 router.get("/api/workouts/range", (req, res) => {
-  Workout.find({})
-    .limit(7)
-    .then((dbWorkout) => {
-      res.json(dbWorkout);
-    })
-    .catch((err) => {
-      res.json(err);
-    });
+  //  new date model
+let range = new Date();
+range.setDate(range.getDate()-7);
+// Today -7
+// .setDate: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/setDate
+// .getDate: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/getDate
+  Workout.aggregate(
+    // Aggregate: https://mongoosejs.com/docs/api.html#aggregate_Aggregate
+    [
+    {$match: 
+      {day: 
+        {$gt: range}
+      }
+    },
+    {$addFields: 
+      // $addFields: https://docs.mongodb.com/manual/reference/operator/aggregation/addFields/
+      {totalDuration: 
+        {$sum: '$exercises.duration'}
+        // $sum: https://docs.mongodb.com/manual/reference/operator/aggregation/sum/
+      }
+    }
+  ])
+  .then(workoutdb => {
+      res.json(workoutdb);
+  })
+  .catch(err => {
+    res.json(err);
+  });
 });
-
 
 module.exports = router;
