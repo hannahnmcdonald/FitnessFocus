@@ -23,8 +23,8 @@ router.get("/api/workouts", (req, res) => {
   });
 })
 
-// TO DO: PUT Request
+// TO DO: PUT Request (findOneAndUpdate)
 
-// TO DO: GET Request w/Range
+// TO DO: GET Request w/Range (With a limit)
 
 module.exports = router;
